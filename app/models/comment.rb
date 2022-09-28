@@ -2,5 +2,11 @@ class Comment < ApplicationRecord
   belongs_to :author, class_name: 'User'
   belongs_to :post, class_name: 'Post'
 
-  scope :recent_five, ->(postid) { where(postid == :post_id).limit(5).order(created_at: :desc) }
+  def recent_comments
+    comments.order('created_at Desc').limit(5)
+  end
+
+  def update_comments_counter
+    post.increment!(:commentscounter)
+  end
 end
