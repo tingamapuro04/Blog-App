@@ -3,6 +3,5 @@ class Post < ApplicationRecord
   has_many :comments, foreign_key: :post_id
   has_many :likes
 
-  scope :recent_three, ->(aut) { where (:author_id == aut) }
-
+  scope :recent_three, ->(aut) { where (aut == :author_id).limit(3).order(created_at: :desc) }
 end
