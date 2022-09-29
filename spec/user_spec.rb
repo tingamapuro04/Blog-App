@@ -37,5 +37,4 @@ RSpec.describe User, type: :model do
       expect(subject.recent_posts.size).to eql(subject.posts.last(3).size)
     end
   end
-
 end

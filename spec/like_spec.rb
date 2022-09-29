@@ -8,7 +8,7 @@ RSpec.describe Like, type: :model do
     subject { Like.new }
     before { subject.save }
 
-    it '#update_post_likes_counter' do
+    it '#update_likes_counter' do
       post.likescounter = 2
       subject.post = post
       expect(subject.post.likescounter).to eq 2
