@@ -29,4 +29,13 @@ RSpec.describe User, type: :model do
     subject.posts_counter = -5
     expect(subject).to_not be_valid
   end
+
+  describe '#three_recent_posts' do
+    before { 6.times { Post.create(author: subject, title: 'Intro', text: 'Welcome to this blog!') } }
+
+    it 'three_recent_posts should return 3 posts' do
+      expect(subject.recent_posts.size).to eql(subject.posts.last(3).size)
+    end
+  end
+
 end
