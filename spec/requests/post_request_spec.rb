@@ -15,5 +15,4 @@ RSpec.describe "Posts", type: :request do
     get('/users/1/posts')
     expect(response).to render_template('index')
   end
-
 end

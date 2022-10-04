@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Users", type: :request do
   it 'Get the status' do
-  get("/users/show")
+    get("/users/show")
 
-  expect(response).to have_http_status(200)
+    expect(response).to have_http_status(200)
   end
 
   it 'Shows the output on the view' do
@@ -16,6 +16,4 @@ RSpec.describe "Users", type: :request do
     get("/users/show")
     expect(response).to render_template('show')
   end
-  
-  
 end

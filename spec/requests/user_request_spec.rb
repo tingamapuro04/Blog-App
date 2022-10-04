@@ -15,5 +15,4 @@ RSpec.describe "Users", type: :request do
     get("/users")
     expect(response).to render_template('index')
   end
-
 end
