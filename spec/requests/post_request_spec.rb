@@ -12,7 +12,8 @@ RSpec.describe "Posts", type: :request do
   end
 
   it 'Renders the correct view' do
-    
+    get('/users/1/posts')
+    expect(response).to render_template('index')
   end
 
 end
