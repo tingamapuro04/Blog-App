@@ -12,7 +12,7 @@ RSpec.describe 'Users', type: :request do
   end
 
   it 'Render the correct view' do
-    get("/users")
+    get('/users')
     expect(response).to render_template('index')
   end
 end
