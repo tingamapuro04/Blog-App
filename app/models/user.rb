@@ -22,4 +22,10 @@ class User < ApplicationRecord
     posts.count()
   end
 
+  after_initialize :set_defaults
+
+  def set_defaults
+    self.posts_counter ||= 0
+  end
+
 end

@@ -7,4 +7,5 @@ class UsersController < ApplicationController
     @user2 = User.find params[:id]
   end
 
+  
 end
