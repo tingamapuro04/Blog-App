@@ -16,11 +16,11 @@ class Post < ApplicationRecord
   end
 
   def count_comments
-    comments.count()
+    comments.count
   end
 
   def count_likes
-    likes.count()
+    likes.count
   end
 
   after_initialize :set_defaults

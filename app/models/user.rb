@@ -11,15 +11,15 @@ class User < ApplicationRecord
   end
 
   def count_comments
-    comments.count()
+    comments.count
   end
 
   def count_likes
-    likes.count()
+    likes.count
   end
 
   def count_posts
-    posts.count()
+    posts.count
   end
 
   after_initialize :set_defaults
@@ -27,5 +27,4 @@ class User < ApplicationRecord
   def set_defaults
     self.posts_counter ||= 0
   end
-
 end
