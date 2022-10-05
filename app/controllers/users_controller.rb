@@ -3,10 +3,8 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-  def show; end
-
-  private
-  def set_user
-    @user = 
+  def show
+    @user = User.find_by(id: params[:id])
   end
+
 end
