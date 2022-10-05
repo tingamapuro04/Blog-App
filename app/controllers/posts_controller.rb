@@ -4,6 +4,6 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posta = Post.find params[:author_id]
+    @posta = Post.find params[:id]
   end
 end

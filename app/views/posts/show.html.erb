@@ -1,1 +1,13 @@
-<h1>I am a list of posts</h1>
+<div>
+  <p>Post <%= @posta.id %> </p>
+  <p>Comments: <%= @posta.commentscounter %>
+  <p>Likes: <%= @posta.likescounter %>
+  <div>
+    <p><%= @posta.text %> </p>
+  </div>
+  <div>
+    <% @posta.recent_comments.each do |comment| %>
+      <p><%= comment.text %> </p>
+    <% end %>
+  </div>
+</div>

@@ -8,7 +8,7 @@ class Post < ApplicationRecord
   validates :likescounter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   def update_user_posts_count
-    author.increment!(:posts_counter)
+    author.increment!(:postscounter)
   end
 
   def recent_comments
