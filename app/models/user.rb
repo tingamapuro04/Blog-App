@@ -9,4 +9,17 @@ class User < ApplicationRecord
   def recent_posts
     posts.order('created_at Desc').limit(3)
   end
+
+  def count_comments
+    comments.count()
+  end
+
+  def count_likes
+    likes.count()
+  end
+
+  def count_posts
+    posts.count()
+  end
+
 end

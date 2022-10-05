@@ -7,7 +7,7 @@
   </div>
   <div>
     <% @posta.recent_comments.each do |comment| %>
-      <p><%= comment.text %> </p>
+      <p><%= comment.author.name %>:<%= comment.text %> </p>
     <% end %>
   </div>
 </div>
