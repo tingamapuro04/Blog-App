@@ -1,3 +1,12 @@
 <div>
-  <%= render @user %>
+  <p><%= @user2.bio %></p>
+  <% @user2.recent_posts.each do |post| %>
+    <div>
+      <p>Post <%= post.id %></p>
+      <p><%= post.text %></p>
+      <p>Comments: <%= post.commentscounter %></p>
+      <p>Likes: <%= post.likescounter %></p>
+    </div>
+
+  <% end %>
 </div>
