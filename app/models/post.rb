@@ -14,4 +14,12 @@ class Post < ApplicationRecord
   def recent_comments
     comments.order('created_at Desc').limit(5)
   end
+
+  def count_comments
+    comments.count()
+  end
+
+  def count_likes
+    likes.count()
+  end
 end
