@@ -3,5 +3,7 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def show; end
+  def show
+    @posta = Post.find params[:author_id]
+  end
 end
