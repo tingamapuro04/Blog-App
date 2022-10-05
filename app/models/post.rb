@@ -22,4 +22,11 @@ class Post < ApplicationRecord
   def count_likes
     likes.count()
   end
+
+  after_initialize :set_defaults
+
+  def set_defaults
+    self.likescounter ||= 0
+    self.commentscounter ||= 0
+  end
 end
