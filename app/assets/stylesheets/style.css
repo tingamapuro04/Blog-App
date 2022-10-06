@@ -54,3 +54,12 @@
 .post-like {
   display: inline;
 }
+
+.btn {
+  color: white;
+  background: #bbb;
+}
+
+.btn a {
+  color: #fff;
+}
