@@ -1,15 +1,17 @@
-<div>
+<div class="one-post">
   <%= render 'cross' %>
-  <div>
+  <div class=bio>
     <h4>Bio</h4>
     <p><%= @user2.bio %></p>
   </div>
   <% @user2.recent_posts.each do |post| %>
-    <div>
+    <div class="sev-post">
       <p>Post <%= post.id %></p>
       <p><%= post.text %></p>
-      <p>Comments: <%= post.count_comments %></p>
-      <p>Likes: <%= post.count_likes %></p>
+      <div class="post-part">
+        <p class="post-comment">Comments: <%= post.count_comments %></p>
+        <p class="post-like">Likes: <%= post.count_likes %></p>
+      </div>
     </div>
 
   <% end %>

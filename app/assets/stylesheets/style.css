@@ -30,3 +30,27 @@
   display: flex;
   width: 100%;
 }
+
+.bio {
+  border: 2px solid #555;
+  margin-top: 4px;
+}
+
+.sev-post {
+  border: 2px solid #356;
+  margin-top: 4px;
+  padding: 8px;
+}
+
+.post-part {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post-comment {
+  display: inline;
+}
+
+.post-like {
+  display: inline;
+}
