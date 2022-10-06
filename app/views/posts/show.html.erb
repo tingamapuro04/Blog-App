@@ -1,11 +1,17 @@
-<div>
-  <p>Post <%= @posta.id %> </p>
-  <p>Comments: <%= @posta.count_comments %>
-  <p>Likes: <%= @posta.count_likes %>
-  <div>
-    <p><%= @posta.text %> </p>
+<div class="owner-post">
+  <div class="one-post">
+    <h3 class="head-3"> <%= @posta.title.capitalize %> by <%= @posta.author.name %> </h3>
+    <div class="post-part">
+      <p class="post-comment">Comments: <%= @posta.count_comments %>
+      <p class="post-like">Likes: <%= @posta.count_likes %>
+      
+    </div>
+    <div>
+      <p class="diff"><%= @posta.text %> </p>
+    </div>
+    
   </div>
-  <div>
+  <div class="recent-comments">
     <% @posta.recent_comments.each do |comment| %>
       <p><%= comment.author.name %>:<%= comment.text %> </p>
     <% end %>

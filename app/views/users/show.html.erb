@@ -1,12 +1,12 @@
 <div class="one-post">
   <%= render 'cross' %>
-  <div class=bio>
+  <div class="bio">
     <h4>Bio</h4>
     <p><%= @user2.bio %></p>
   </div>
   <% @user2.recent_posts.each do |post| %>
     <div class="sev-post">
-      <p>Post <%= post.id %></p>
+      <p><%= link_to post.title.capitalize, user_post_path(@user2, post) %></p>
       <p><%= post.text %></p>
       <div class="post-part">
         <p class="post-comment">Comments: <%= post.count_comments %></p>

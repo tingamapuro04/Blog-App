@@ -4,7 +4,7 @@
 
   <div class="index-box">
     <p>
-      <%= user.name %>
+      <%=link_to user.name, user_path(user.id) %>
     </p>
 
     <p class="post-counter">
