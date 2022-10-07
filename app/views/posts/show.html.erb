@@ -17,4 +17,6 @@
     <% end %>
   </div>
 </div>
+<%= link_to 'new', new_user_post_comment_path(@posta.author, @posta) %>
+<%= render partial: 'likes/form' %>
 

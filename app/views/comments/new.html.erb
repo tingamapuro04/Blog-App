@@ -1,6 +1,6 @@
 <h1>I am a comment</h1>
 
-<%= form_with model: @comment, url: user_post_comments_url, method: :post, local: true, scope: :comment, data: { turbo: false} do |f| %>
+<%= form_with model: @comment, url: user_post_comments_url, method: :post, local: true, scope: :comment do |f| %>
 
   <div>
     <%= f.label :Text %><br>

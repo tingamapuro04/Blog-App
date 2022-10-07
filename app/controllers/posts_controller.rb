@@ -20,7 +20,7 @@ class PostsController < ApplicationController
           redirect_to user_posts_path(current_user, @post)
         else
           flash.now[:error] = "Error: Post could not be saved"
-          render :new, locals: { post: @post }
+          render :new, locals: { post: @post }, status: 442
         end
       end
     end

@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
           redirect_to user_post_path(current_user, @comment.post)
         else
           flash.now[:error] = "Error: Comment could not be saved"
-          render :new, locals: { comment: @comment }
+          render :new, locals: { comment: @comment }, status: 422
         end
       end
     end
