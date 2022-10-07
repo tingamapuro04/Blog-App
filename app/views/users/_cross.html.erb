@@ -1,0 +1,7 @@
+<div class="cross-div">
+<%= image_tag(@user2.photo, :size => '150x150') %>
+<div class="index-box">
+  <p><%=link_to @user2.name, user_path(@user2.id) %></p>
+  <p class="post-counter">Number of posts: <%= @user2.count_posts %></p>
+</div>
+</div>

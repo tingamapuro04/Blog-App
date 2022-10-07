@@ -1,1 +1,8 @@
-<h1>I am a post</h1>
+<%= render "users/cross" %>
+
+<% @posts.each do |post| %>
+  <%= render post %>
+
+<% end %>
+
+<button>Pagination</button>

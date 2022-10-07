@@ -1,0 +1,31 @@
+.post-item {
+  list-style-type: none;
+  padding-right: 0;
+}
+
+.recent-comments {
+  border: 2px solid #999;
+  margin-top: 4px;
+}
+
+.one-post {
+  border: 2px solid #666;
+  padding: 8px;
+  margin-top: 8px;
+}
+
+.diff {
+  display: block;
+}
+
+.head-3 {
+  margin-top: 0;
+}
+
+.owner-post {
+  margin-top: 20px;
+}
+
+a {
+  text-decoration: none;
+}
