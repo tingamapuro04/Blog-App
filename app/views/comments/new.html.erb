@@ -1,0 +1,11 @@
+<h1>I am a comment</h1>
+
+<%= form_with model: @comment, url: user_post_comments_path, method: :post, local: true, scope: :comment do |f| %>
+  # TODO: Add fields
+
+  <div>
+    <%= f.label :question %><br>
+    <%= f.text_field :question %>
+  </div>
+
+<% end %>
