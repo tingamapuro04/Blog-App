@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :new, :create, :edit, :show] do
-      resources :comments, only: [:index, :new]
+      resources :comments, only: [:new, :create]
     end
   end
   

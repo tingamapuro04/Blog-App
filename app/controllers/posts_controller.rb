@@ -13,7 +13,6 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    p @post
     respond_to do |format|
       format.html do
         if @post.save
