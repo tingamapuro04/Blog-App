@@ -1,8 +1,17 @@
 <h1>My Post</h1>
 
-<%= form_with model: post, url: user_posts_path, method: :post, local: true, scope: :post do %>
+<%= form_with model: post, url: user_posts_path, method: :post, local: true, scope: :post do |f| %>
   <div>
-    <%= f.label :Title %><br>
+    <%= f.label :Title %>
     <%= f.text_field :Title %>
   </div>
+
+  <div>
+    <%= f.label :Text %>
+    <%= f.text_area :Text, size: '20x5' %>
+  </div><br>
+
+  <%= f.submit 'Add Post' %>
+
+
 <% end %>
