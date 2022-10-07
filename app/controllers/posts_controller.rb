@@ -19,12 +19,11 @@ class PostsController < ApplicationController
           flash[:success] = 'Success'
           redirect_to user_posts_path(current_user, @post)
         else
-          flash.now[:error] = "Error: Post could not be saved"
+          flash.now[:error] = 'Error: Post could not be saved'
           render :new, locals: { post: @post }, status: 442
         end
       end
     end
-    
   end
 
   def show
@@ -34,6 +33,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-      params.require(:post).permit(:title, :text).merge(author: current_user)
-    end
+    params.require(:post).permit(:title, :text).merge(author: current_user)
+  end
 end

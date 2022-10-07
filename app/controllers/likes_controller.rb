@@ -12,7 +12,5 @@ class LikesController < ApplicationController
     else
       redirect_to "/users/#{@post.author_id}/posts/#{@post.id}", alert: 'Error occured!'
     end
-
   end
-
 end
