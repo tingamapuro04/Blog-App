@@ -1,0 +1,8 @@
+<h1>My Post</h1>
+
+<%= form_with model: post, url: user_posts_path, method: :post, local: true, scope: :post do %>
+  <div>
+    <%= f.label :Title %><br>
+    <%= f.text_field :Title %>
+  </div>
+<% end %>
