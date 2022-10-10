@@ -1,6 +1,6 @@
 <li class="post-item">
   <div class="sev-post">
-    <p><%= link_to post.title.capitalize, user_post_path(@user2, post) %></p>
+    <p><%= link_to post.title, user_post_path(@user2, post) %></p>
     <p><%= post.text %> </p>
     <div class="post-part">
       <p>Comments: <%= post.count_comments %> </p>

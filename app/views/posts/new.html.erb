@@ -3,12 +3,12 @@
 <%= form_with model: @post, url: user_posts_url, method: :post, local: true, scope: :post do |f| %>
   <div>
     <%= f.label :Title %>
-    <%= f.text_field :Title %>
+    <%= f.text_field :title %>
   </div>
 
   <div>
     <%= f.label :Text %>
-    <%= f.text_area :Text, size: '20x5' %>
+    <%= f.text_area :text, size: '20x5' %>
   </div><br>
 
   <%= f.submit 'Add Post' %>
