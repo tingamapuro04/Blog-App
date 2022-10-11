@@ -1,6 +1,8 @@
 class CommentsController < ApplicationController
+
+
   def new
-    @comment = Comment.includes(:author).new
+    @comment = Comment.new.includes([:author_id])
     respond_to do |format|
       format.html { render :new, locals: { comment: @comment } }
     end

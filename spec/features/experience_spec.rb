@@ -7,10 +7,16 @@ RSpec.describe 'User index and show pages', type: :feature do
     @post1 = Post.create(id: 10, title: 'title1', text: 'Texting', author_id: @me.id)
     @post2 = Post.create(id: 12, title: 'title2', text: 'Texting1', author_id: @me.id)
 
-    @you = User.create(name: 'Wafula', photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn1lEs_QwtQAHvtgmrPvVAb04SZF78jqQ9GRms2UYqmHIhXuz72OimxgN58_dHKQhaD0o&usqp=CAU', bio: 'Mimi ni wafula', id: 2)
+    @comment1 = Comment.create(author_id: @me.id, post_id: @post1.id, text: 'I am a testing comment')
 
-    @post3 = Post.create(title: 'title3', text: 'wewe wewewe', author_id:@you.id)
-    @post = Post.create(title: 'title4', text: 'jaroror', author_id:@you.id)
+    @comment2  = Comment.create(author_id: @me.id, post_id: @post1.id, text: 'I am a just a tester')
+
+    @comment3 = Comment.create(author_id: @me.id, post_id: @post1.id, text: 'I am also here')
+
+    # @you = User.create(name: 'Wafula', photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn1lEs_QwtQAHvtgmrPvVAb04SZF78jqQ9GRms2UYqmHIhXuz72OimxgN58_dHKQhaD0o&usqp=CAU', bio: 'Mimi ni wafula', id: 2)
+
+    # @post3 = Post.create(title: 'title3', text: 'wewe wewewe', author_id:@you.id)
+    # @post = Post.create(title: 'title4', text: 'jaroror', author_id:@you.id)
   end
 
   describe 'index page' do
@@ -61,13 +67,44 @@ RSpec.describe 'User index and show pages', type: :feature do
 
     it 'should show a button element' do
       visit("/users/1")
-      expect(page).to have_selector(:button, 'See all posts')
+      expect(page).to have_selector(:button, 'See posts')
     end
 
     it 'should redirect me to the posts show page' do
       visit("/users/1")
       click_on @post1.title
       expect(page).to have_current_path('/users/1/posts/10')
+    end
+
+    # it 'should redirect me to all the posts by the user' do
+    #   visit user_path(@me)
+    #   click_on 'See posts'
+    #   expect(page).to have_current_path(user_posts_path(@post1))
+    # end
+
+    it 'show the user profile image' do
+      visit('users/1/posts')
+      expect(page).to have_selector("img[src='#{@me.photo}']")
+    end
+
+    it 'shows the username' do
+      visit('users/1/posts')
+      expect(page).to have_content(@me.name)
+    end
+
+    it 'shows a posts title' do
+      visit('users/1/posts')
+      expect(page).to have_content(@post1.title)
+    end
+
+    it 'shows a posts body' do
+      visit('users/1/posts')
+      expect(page).to have_content(@post1.text)
+    end
+
+    it 'shows the number of comments' do
+      visit('users/1/posts/10')
+      expect(page).to have_content('Comments: 3')
     end
 
 
