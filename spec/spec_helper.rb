@@ -27,27 +27,20 @@ RSpec.configure do |config|
 
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
-# The settings below are suggested to provide a good initial experience
-# with RSpec, but feel free to customize to your heart's content.
-=begin
+  # The settings below are suggested to provide a good initial experience
+  # with RSpec, but feel free to customize to your heart's content.
+
   config.filter_run_when_matching :focus
 
-  config.example_status_persistence_file_path = "spec/examples.txt"
+  config.example_status_persistence_file_path = 'spec/examples.txt'
 
   config.disable_monkey_patching!
 
-  if config.files_to_run.one?
-    
-    config.default_formatter = "doc"
-  end
+  config.default_formatter = 'doc' if config.files_to_run.one?
 
-  
   config.profile_examples = 10
-
 
   config.order = :random
 
-  
   Kernel.srand config.seed
-=end
 end

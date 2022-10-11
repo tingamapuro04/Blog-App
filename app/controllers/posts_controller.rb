@@ -1,15 +1,12 @@
 class PostsController < ApplicationController
-
   around_action :skip_bullet
 
   def skip_bullet
-      Bullet.enable = false
-      yield
+    Bullet.enable = false
+    yield
   ensure
-      Bullet.enable = true
+    Bullet.enable = true
   end
-
-
 
   def index
     @user2 = User.find(params[:user_id])

@@ -1,6 +1,4 @@
 class CommentsController < ApplicationController
-
-
   def new
     @comment = Comment.new.includes([:author_id])
     respond_to do |format|

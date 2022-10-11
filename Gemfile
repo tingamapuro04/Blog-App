@@ -36,20 +36,20 @@ gem 'sassc-rails'
 
 group :development do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
-  gem 'web-console'
   gem 'rspec-rails', '~> 6.0'
+  gem 'web-console'
 end
 
 group :test do
   gem 'capybara'
+  gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
   gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
 end
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 group :development, :test do
-  gem 'rails-controller-testing'
   gem 'bullet', '~> 7.0', '>= 7.0.3'
+  gem 'rails-controller-testing'
 end
