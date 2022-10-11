@@ -34,29 +34,22 @@ gem 'sassc-rails'
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem 'image_processing', '~> 1.2'
 
-group :development, :test do
-  gem 'debug', platforms: %i[mri mingw x64_mingw]
-end
-
 group :development do
-
-  # Use console on exceptions pages [https://github.com/rails/web-console]
+  gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'web-console'
-
-  # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
-  # gem 'spring'
+  gem 'rspec-rails', '~> 6.0'
 end
 
 group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'database_cleaner', '~> 2.0', '>= 2.0.1'
 end
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 group :development, :test do
   gem 'rails-controller-testing'
-  gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'bullet', '~> 7.0', '>= 7.0.3'
 end
