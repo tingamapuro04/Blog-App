@@ -1,4 +1,4 @@
-# require 'rails_helper'
+require 'rails_helper'
 
 # RSpec.describe User, type: :model do
 #   subject { User.new(name: 'Alphonce', photo: 'https:/photo.com', bio: 'Teacher', posts_counter: 5) }
@@ -38,3 +38,12 @@
 #     end
 #   end
 # end
+
+RSpec.describe 'User Page', type: :system do
+  describe 'index page' do
+    it 'shows the right content' do
+      visit('users')
+      expect(page).to have_content('')
+    end
+  end
+end
