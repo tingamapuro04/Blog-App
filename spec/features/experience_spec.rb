@@ -13,10 +13,10 @@ RSpec.describe 'User index and show pages', type: :feature do
 
     @comment3 = Comment.create(author_id: @me.id, post_id: @post1.id, text: 'I am also here')
 
-    # @you = User.create(name: 'Wafula', photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn1lEs_QwtQAHvtgmrPvVAb04SZF78jqQ9GRms2UYqmHIhXuz72OimxgN58_dHKQhaD0o&usqp=CAU', bio: 'Mimi ni wafula', id: 2)
+    @you = User.create(name: 'Wafula', photo: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTn1lEs_QwtQAHvtgmrPvVAb04SZF78jqQ9GRms2UYqmHIhXuz72OimxgN58_dHKQhaD0o&usqp=CAU', bio: 'Mimi ni wafula', id: 2)
 
-    # @post3 = Post.create(title: 'title3', text: 'wewe wewewe', author_id:@you.id)
-    # @post = Post.create(title: 'title4', text: 'jaroror', author_id:@you.id)
+    @post3 = Post.create(title: 'title3', text: 'wewe wewewe', author_id:@you.id)
+    @post = Post.create(title: 'title4', text: 'jaroror', author_id:@you.id)
   end
 
   describe 'index page' do
@@ -76,48 +76,45 @@ RSpec.describe 'User index and show pages', type: :feature do
       expect(page).to have_current_path('/users/1/posts/10')
     end
 
-    # it 'should redirect me to all the posts by the user' do
-    #   visit user_path(@me)
-    #   click_on 'See posts'
-    #   expect(page).to have_current_path(user_posts_path(@post1))
-    # end
+    describe 'Post index page' do
+      it 'show the user profile image' do
+        visit('users/1/posts')
+        expect(page).to have_selector("img[src='#{@me.photo}']")
+      end
 
-    it 'show the user profile image' do
-      visit('users/1/posts')
-      expect(page).to have_selector("img[src='#{@me.photo}']")
+
+      it 'shows the username' do
+        visit('users/1/posts')
+        expect(page).to have_content(@me.name)
+      end
+
+      it 'shows a posts title' do
+        visit('users/1/posts')
+        expect(page).to have_content(@post1.title)
+      end
+
+      it 'shows a posts body' do
+        visit('users/1/posts')
+        expect(page).to have_content(@post1.text)
+      end
+
+      it 'shows the number of comments' do
+        visit('users/1/posts/10')
+        expect(page).to have_content('Comments: 3')
+      end
+
+      it 'shows the number of likes' do
+        visit('users/1/posts/10')
+        expect(page).to have_content('Likes: 0')
+      end
+
+      it 'Redirects to the post show page' do
+        visit('users/1/posts')
+        click_on @post1.title
+        expect(page).to have_current_path('/users/1/posts/10')
+      end
+
     end
-
-    it 'shows the username' do
-      visit('users/1/posts')
-      expect(page).to have_content(@me.name)
-    end
-
-    it 'shows a posts title' do
-      visit('users/1/posts')
-      expect(page).to have_content(@post1.title)
-    end
-
-    it 'shows a posts body' do
-      visit('users/1/posts')
-      expect(page).to have_content(@post1.text)
-    end
-
-    it 'shows the number of comments' do
-      visit('users/1/posts/10')
-      expect(page).to have_content('Comments: 3')
-    end
-
-    it 'shows the number of likes' do
-      visit('users/1/posts/10')
-      expect(page).to have_content('Likes: 0')
-    end
-
-    it 'Redirects to the post show page' do
-      visit('users/1/posts')
-      click_on @post1.title
-      expect(page).to have_current_path('/users/1/posts/10')
-    end
-
 
   end
 
@@ -126,6 +123,31 @@ RSpec.describe 'User index and show pages', type: :feature do
     it 'shows the posts title' do
       visit('users/1/posts/10')
       expect(page).to have_content(@post1.title)
+    end
+
+    it 'shows the username' do
+      visit('users/1/posts/10')
+      expect(page).to have_content(@me.name)
+    end
+
+    it 'shows the number of comments' do
+      visit('users/1/posts/10')
+      expect(page).to have_content('Comments: 3')
+    end
+
+    it 'shows the number of Likes' do
+      visit('users/1/posts/10')
+      expect(page).to have_content('Likes: 0')
+    end
+
+    it 'shows the body of the post' do
+      visit('users/1/posts/10')
+      expect(page).to have_content(@post1.text)
+    end
+
+    it 'shows the comment left' do
+      visit('users/1/posts/10')
+      expect(page).to have_content(@comment1.text)
     end
 
   end
