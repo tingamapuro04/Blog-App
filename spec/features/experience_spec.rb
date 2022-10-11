@@ -107,6 +107,26 @@ RSpec.describe 'User index and show pages', type: :feature do
       expect(page).to have_content('Comments: 3')
     end
 
+    it 'shows the number of likes' do
+      visit('users/1/posts/10')
+      expect(page).to have_content('Likes: 0')
+    end
+
+    it 'Redirects to the post show page' do
+      visit('users/1/posts')
+      click_on @post1.title
+      expect(page).to have_current_path('/users/1/posts/10')
+    end
+
+
+  end
+
+  describe 'Post show page' do
+
+    it 'shows the posts title' do
+      visit('users/1/posts/10')
+      expect(page).to have_content(@post1.title)
+    end
 
   end
 
