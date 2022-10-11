@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   def new
-    @comment = Comment.new
+    @comment = Comment.includes(posts: [:author]).new
     respond_to do |format|
       format.html { render :new, locals: { comment: @comment } }
     end
@@ -12,10 +12,10 @@ class CommentsController < ApplicationController
       format.html do
         if @comment.save
           flash[:success] = 'Success'
-          redirect_to user_post_path(current_user, @comment.post)
+          redirect_to user_post_path(current_user, @comment.includes(:author).post)
         else
           flash.now[:error] = 'Error: Comment could not be saved'
-          render :new, locals: { comment: @comment }, status: 422
+          render :new, locals: { comment: @comment.includes(:author). }, status: 422
         end
       end
     end
