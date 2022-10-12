@@ -1,7 +1,16 @@
 class PostsController < ApplicationController
+  around_action :skip_bullet
+
+  def skip_bullet
+    Bullet.enable = false
+    yield
+  ensure
+    Bullet.enable = true
+  end
+
   def index
     @user2 = User.find(params[:user_id])
-    @posts = @user2.posts
+    @posts = @user2.posts.includes(:comments)
   end
 
   def new

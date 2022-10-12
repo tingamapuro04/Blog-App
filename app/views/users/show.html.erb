@@ -6,7 +6,7 @@
   </div>
   <% @user2.recent_posts.each do |post| %>
     <div class="sev-post">
-      <p><%= link_to post.title.capitalize, user_post_path(@user2, post) %></p>
+      <p><%= link_to post.title, user_post_path(@user2, post) %></p>
       <p><%= post.text %></p>
       <div class="post-part">
         <p class="post-comment">Comments: <%= post.count_comments %></p>
@@ -17,4 +17,4 @@
   <% end %>
 </div>
 
-<button class="btn"><%= link_to  "See all posts", user_posts_path(@user2)  %></button>
+<button class="btn"><%= link_to  "See posts", user_posts_path(@user2)  %></button>
