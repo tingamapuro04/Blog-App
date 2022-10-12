@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  root to: "users#index"
+
+
   resources :users, only: [:index, :show] do
     resources :posts, only: [:index, :new, :create, :show] do
       resources :comments, only: [:new, :create]
@@ -6,7 +10,7 @@ Rails.application.routes.draw do
     end
   end
   
-  root 'users#index'
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
