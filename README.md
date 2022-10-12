@@ -38,10 +38,16 @@ Clone this project from git hub
 
 ## Authors
 
-👤 **Author1**
+👤 **Alphonce Mobutu**
 
 - GitHub: [@githubhandle](https://github.com/tingamapuro04)
 
+
+👤 **Mohammed Raad**
+
+- GitHub: [@MoRaad97](https://github.com/MoRaad97)
+- Twitter: [@MohammedRaadz](https://twitter.com/MohammedRaadz)
+- LinkedIn: [Mohammed Raad](linkedin.com/in/mohammed-raad-600176210)
 
 ## 🤝 Contributing
 
