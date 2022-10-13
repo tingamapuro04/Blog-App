@@ -14,9 +14,15 @@
   <div class="recent-comments">
     <% @posta.recent_comments.each do |comment| %>
       <p><%= comment.author.name %>:<%= comment.text %> </p>
+      <% if can? :destroy, Comment %>
+        <%= button_to 'Delete', user_post_comment_path(author_id: comment.author.id, post_id: comment.post.id, id: comment.id), method: :delete %>
+      <% end %>
     <% end %>
   </div>
 </div>
+<% if can? :destroy, Post %>
+  <%= button_to 'Delete', user_post_path(author_id: @posta.author.id, post_id: @posta.id), method: :delete %>
+<% end %>
 <%= link_to 'new', new_user_post_comment_path(@posta.author, @posta) %>
 <%= render partial: 'likes/form' %>
 

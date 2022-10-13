@@ -32,12 +32,12 @@
 }
 
 .bio {
-  border: 2px solid #555;
+  border: 2px solid rgb(83, 77, 77);
   margin-top: 4px;
 }
 
 .sev-post {
-  border: 2px solid #356;
+  border: 2px solid rgb(55, 115, 144);
   margin-top: 4px;
   padding: 8px;
 }
@@ -57,9 +57,13 @@
 
 .btn {
   color: white;
-  background: #bbb;
+  background: rgb(167, 167, 167);
 }
 
 .btn a {
-  color: #fff;
+  color: rgb(224, 224, 224);
+}
+
+.btn a:hover {
+  color: rgb(0, 0, 0);
 }
