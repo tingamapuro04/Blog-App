@@ -1,5 +1,4 @@
 class ApplicationController < ActionController::Base
-  # def current_user
-  #   User.first
-  # end
+    alias_method :current_user, :current_admin
+
 end
