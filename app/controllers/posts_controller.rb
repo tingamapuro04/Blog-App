@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
   around_action :skip_bullet
 
   def skip_bullet
