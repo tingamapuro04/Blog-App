@@ -17,8 +17,10 @@ class Ability
 
       if user.is? :admin
         can :manage, Post
+        can :manage, Comment
       else
         can :read, Post
+        can :read, Comment
       end
     #
     # The first argument to `can` is the action you are giving the user
