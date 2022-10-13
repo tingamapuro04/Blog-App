@@ -5,7 +5,7 @@ class Ability
 
   def initialize(user)
 
-    user ||= User.new
+    user ||= Admin.new
 
     
     # Define abilities for the user here. For example:
