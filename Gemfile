@@ -31,7 +31,7 @@ gem 'bootsnap', require: false
 
 gem 'sassc-rails'
 
-gem 'devise'
+gem 'devise', '~> 4.8', '>= 4.8.1'
 
 gem 'cancancan', '~> 3.4'
 
