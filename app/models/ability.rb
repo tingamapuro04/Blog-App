@@ -2,7 +2,7 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= Admin.new
+    user ||= User.new
 
     # Define abilities for the user here. For example:
     #
