@@ -15,7 +15,7 @@
     <% @posta.recent_comments.each do |comment| %>
       <p><%= comment.author.name %>:<%= comment.text %> </p>
       <% if can? :destroy, Comment %>
-        <%= link_to 'Delete', user_post_comment_url, method: :delete %>
+        <%= link_to 'Delete', user_post_comment_url(comment.post_id, comment.id), method: :delete %>
       <% end %>
     <% end %>
   </div>
