@@ -1,6 +1,7 @@
 <li id="users-item">
 
-  <%= image_tag(user.photo, :size => '150x150') %>
+  
+  <%= image_tag(user.photo, :size => '150x150') if user.photo %>
 
   <div class="index-box">
     <p>
