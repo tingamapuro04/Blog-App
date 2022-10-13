@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource
   around_action :skip_bullet
 
   def skip_bullet
@@ -27,7 +26,7 @@ class PostsController < ApplicationController
       format.html do
         if @post.save
           flash[:success] = 'Success'
-          redirect_to user_posts_path(current_user, @post)
+          redirect_to user_posts_path(current_admin, @post)
         else
           flash.now[:error] = 'Error: Post could not be saved'
           render :new, locals: { post: @post }, status: 442
@@ -40,9 +39,17 @@ class PostsController < ApplicationController
     @posta = Post.find params[:id]
   end
 
+  def destroy
+    @post = Post.find(params[:id])
+    @author = @post.author
+    @author.decrement!(:postscounter)
+    @post.destroy!
+    redirect_to user_posts_path(id: @author.id), notice: 'Post was deleted successfully!'
+  end
+
   private
 
   def post_params
-    params.require(:post).permit(:title, :text).merge(author: current_user)
+    params.require(:post).permit(:title, :text).merge(author: current_admin)
   end
 end

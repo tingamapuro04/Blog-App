@@ -15,6 +15,9 @@
 
   <body id="body">
     <nav>
+      <%= link_to 'Sign up', new_admin_session_path %>
+      <%= link_to 'Sign in', admin_session_path %>
+      <%= link_to 'Edit profile', edit_admin_registration_path %>
       <%= link_to 'Sign out', destroy_admin_session_path, method: :delete %>
     </nav>
     <p class="notice"><%= notice %></p>
