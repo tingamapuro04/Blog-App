@@ -60,4 +60,4 @@ end
 
 gem 'will_paginate', '~> 3.3'
 
-gem "active_model_serializers", "~> 0.10.13"
+gem 'active_model_serializers', '~> 0.10.13'
