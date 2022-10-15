@@ -57,3 +57,7 @@ group :development, :test do
   gem 'bullet', '~> 7.0', '>= 7.0.3'
   gem 'rails-controller-testing'
 end
+
+gem 'will_paginate', '~> 3.3'
+
+gem 'active_model_serializers', '~> 0.10.13'
