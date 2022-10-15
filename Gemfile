@@ -25,7 +25,7 @@ gem 'jbuilder'
 
 # gem 'bcrypt', '~> 3.1.7'
 
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'tzinfo-data'
 
 gem 'bootsnap', require: false
 
@@ -61,3 +61,5 @@ end
 gem 'will_paginate', '~> 3.3'
 
 gem 'active_model_serializers', '~> 0.10.13'
+
+gem 'rswag'
